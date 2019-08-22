@@ -1,0 +1,31 @@
+{
+  "name": "i18n-smart",
+  "version": "0.0.2",
+  "description": "Smart and lightweight simple localize module with dynamic storage.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lib": "tsc",
+    "link": "npm run build && cd lib && npm link"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "typescript",
+    "i18n",
+    "react"
+  ],
+  "author": "Max Marinich",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "devDependencies": {
+    "react": "^16.9.0",
+    "typescript": "^2.9.2"
+  }
+}
