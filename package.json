@@ -1,6 +1,6 @@
 {
   "name": "i18n-smart",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Smart and lightweight simple localize module with dynamic storage.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
