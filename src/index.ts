@@ -1,8 +1,8 @@
-import { extend } from './services';
-import { instance } from './instance';
-import { Options } from './types';
+import { extend } from "./services";
+import { instance } from "./instance";
+import { Options, Instance } from "./types";
 
-const configure = (options: Options): any => {
+const configure = (options: Options): Instance => {
   const { plugins = [] } = options;
   extend(plugins, options, instance);
 
