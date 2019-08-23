@@ -3,6 +3,7 @@ export const mapValues = (values: Object): Map<any, any> => {
 
   for (let key in values) {
     if (values.hasOwnProperty(key)) {
+      // @ts-ignore
       newMap.set(key, values[key]);
     }
   }

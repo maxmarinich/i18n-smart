@@ -47,6 +47,7 @@ jspm_packages
 
 # Static files
 src
+!src/plugins
 tests
 package-lock.json
 tsconfig.json

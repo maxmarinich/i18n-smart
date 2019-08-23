@@ -7,8 +7,10 @@ export interface Instance {
   getLocale(): string | void;
   getValueByKey(key: string): string | undefined;
   hasTranslations(localeCode: string): boolean;
+  hasValue(key?: string): boolean;
   clear(): void;
   value(key: string, params?: Array<any>): any;
+  interpolate(key: string, params?: Array<any>): any;
   [name: string]: any;
 }
 

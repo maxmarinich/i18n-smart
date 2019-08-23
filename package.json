@@ -1,17 +1,22 @@
 {
   "name": "i18n-smart",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Smart and lightweight simple localize module with dynamic storage.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lib": "tsc",
-    "link": "npm run build && cd lib && npm link"
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "build": "npm run build:types && npm run build:js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\"",
+    "link": "cd lib && sudo npm link i18n-smart",
+    "unlink": "cd lib && sudo npm unlink i18n-smart"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/maxmarinich/i18n-smart.git"
   },
   "keywords": [
     "typescript",
@@ -19,13 +24,29 @@
     "react"
   ],
   "author": "Max Marinich",
+  "maintainers": [
+    {
+      "name": "Max Marinich",
+      "email": "max.marinich@gmail.com"
+    }
+  ],
   "license": "MIT",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/maxmarinich/i18n-smart/issues"
   },
-  "homepage": "",
+  "homepage": "https://github.com/maxmarinich/i18n-smart#readme",
+  "peerDependencies": {
+    "react": ">=15.4"
+  },
   "devDependencies": {
-    "react": "^16.9.0",
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-numeric-separator": "^7.2.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "@babel/preset-typescript": "^7.3.3",
     "typescript": "^2.9.2"
   }
 }

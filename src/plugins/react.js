@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const PARAMS_TEST_PATTERN = /{(.*?)}/g;
 const PARAMS_MATCH_PATTERN = /{*[^{}]+}*/g;
@@ -11,7 +11,7 @@ export default (options, instance) => {
   };
 };
 
-const interpolateReact = (message = "", params = []) => {
+const interpolateReact = (message = '', params = []) => {
   if (message && params && PARAMS_TEST_PATTERN.test(message)) {
     const values = message.match(PARAMS_MATCH_PATTERN);
 
@@ -36,21 +36,20 @@ const mergeFragments = (fragments, current) => {
 };
 
 const createFragment = (params, item, key) => {
-  const index = item.replace(MARKER_REPLACE_PATTERN, "");
+  const index = item.replace(MARKER_REPLACE_PATTERN, '');
   const fragment = params[index];
 
   if (React.isValidElement(fragment)) {
-    // @ts-ignore
     return <React.Fragment key={key}>{fragment}</React.Fragment>;
   }
 
   return fragment;
 };
 
-const isMarker = item => {
+const isMarker = (item) => {
   return MARKER_TEST_PATTERN.test(item);
 };
 
-const isPrimitive = item => {
-  return typeof item === "string" || typeof item === "number";
+const isPrimitive = (item) => {
+  return typeof item === 'string' || typeof item === 'number';
 };

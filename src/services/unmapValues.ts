@@ -1,9 +1,11 @@
 import { Value } from "../types";
 
-export const unmapValues = (mapObject): Value => {
-  const values = {};
+export const unmapValues = (mapObject: Map<any, any>): Value => {
+  const values: Value = {};
 
-  for (let [key, value] of mapObject) {
+  for (const item of mapObject) {
+    const [key, value] = item;
+
     values[key] = value instanceof Map ? unmapValues(value) : value;
   }
 
