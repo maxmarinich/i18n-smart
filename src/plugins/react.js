@@ -40,7 +40,8 @@ const createFragment = (params, item, key) => {
   const fragment = params[index];
 
   if (React.isValidElement(fragment)) {
-    return <React.Fragment key={key}>{fragment}</React.Fragment>;
+    return React.createElement(React.Fragment, {key}, fragment);
+    // return <React.Fragment key={key}>{fragment}</React.Fragment>;
   }
 
   return fragment;
