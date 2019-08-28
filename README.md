@@ -105,10 +105,9 @@ configure({
   plugins: [reactInterpolatePlugin]
 });
 
-const locale = 'en';
 const values = { "key": "Some {0}"};
 const element = <span>text</spam>;
 
-i18n.setValues(values, locale);
+i18n.setDefaultValues(values);
 i18n.interpolate('key', [element]) // Some text
 ```
