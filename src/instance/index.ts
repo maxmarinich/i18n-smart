@@ -1,6 +1,6 @@
-import * as services from '../services';
-import { LOCALE, DEFAULT } from './constants';
-import { Value, Instance } from '../types';
+import * as services from "../services";
+import { LOCALE, DEFAULT } from "./constants";
+import { Value, Instance } from "../types";
 
 const STORE: Map<any, any> = new Map();
 
@@ -21,20 +21,21 @@ const setDefaultValues = (values: Value): void => {
   STORE.set(DEFAULT, items);
 };
 
-const getValue = (key: string, params?: Array<any>, cb?: any): any => {
+const getValue = (key: string, params?: Array<any>, cb?: void): any => {
   const value = getValueByKey(key);
 
   if (value) {
-    const interpolate = (typeof cb === 'function' && cb) || services.interpolate;
+    const interpolate =
+      (typeof cb === "function" && cb) || services.interpolate;
 
     return interpolate(value, params);
   }
-  console.warn(`i18n-smart: undefined key \`${key}\'`);
+  console.warn(`i18n-smart: undefined key '${key}'`);
 
   return key;
 };
 
-const getValueByKey = (key?: string): string | undefined => {
+const getValueByKey = (key: string): string | undefined => {
   const translations = getTranslations();
   const defaultTranslations = getDefaultTranslations();
 
@@ -56,16 +57,19 @@ const getValues = (): Value => {
 };
 
 const getLocale = (): string | void => {
-  return STORE.get(LOCALE) || console.warn('i18n-smart: `locale` has not been initialized');
+  return (
+    STORE.get(LOCALE) ||
+    console.warn("i18n-smart: `locale` has not been initialized")
+  );
 };
 
 const hasTranslations = (localeCode: string): boolean => {
   return Boolean(STORE.get(localeCode));
 };
 
-const hasValue = (key?: string): boolean => {
+const hasValue = (key: string): boolean => {
   return Boolean(getValueByKey(key));
-}
+};
 
 const clear = (): void => {
   STORE.clear();
@@ -73,7 +77,7 @@ const clear = (): void => {
 
 const interfaces = {
   interpolate: getValue,
-  value: getValue,
+  value: getValue
 };
 
 export function instance(): Instance {
@@ -88,6 +92,6 @@ export function instance(): Instance {
     hasTranslations,
     hasValue,
     clear,
-    ...interfaces,
+    ...interfaces
   };
 }
