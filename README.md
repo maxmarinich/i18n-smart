@@ -1,6 +1,6 @@
 ## i18n-smart
 
-#### Smart and lightweight module for localization with dynamic storage.
+Smart and lightweight module for localization with dynamic storage.
 
 ### Features
 
@@ -10,9 +10,8 @@
 - TypeScript
 - React integration (optional)
 
-### The library always relies on the global `Map` object to handle data storage.
-
-For browsers that do not support these, you'll need to include a polyfill, such as core-js:
+### Note:
+The library always relies on the global `Map` object to handle data storage. For browsers that do not support that, you'll need to include a polyfill, such as core-js:
 
 ```javascript
 import "core-js/es6/map";
