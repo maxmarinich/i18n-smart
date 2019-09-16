@@ -51,3 +51,6 @@ src
 tests
 package-lock.json
 tsconfig.json
+.eslint
+.eslintrc
+.prettierrc

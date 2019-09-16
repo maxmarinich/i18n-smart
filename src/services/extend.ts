@@ -1,12 +1,14 @@
-import { Instance, Options } from '../types';
+import { Instance, Options, Plugins } from "../types";
 
 export const extend = (
-  plugins: Array<(options: Options, module: Instance) => void>,
+  plugins: Plugins,
   options: Options,
-  module: Instance,
+  module: Instance
 ): Instance => {
   if (Array.isArray(plugins)) {
-    plugins.forEach((plugin) => plugin(options, module));
+    plugins.forEach(plugin => {
+      if (typeof plugin === "function") plugin(options, module);
+    });
   }
 
   return module;

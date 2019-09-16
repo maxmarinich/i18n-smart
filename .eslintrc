@@ -1,0 +1,66 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "prettier",
+    "prettier/react",
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+  "plugins": ["import", "react-hooks"],
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "NODE_ENV": true
+  },
+  "rules": {
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "linebreak-style": "off",
+    "arrow-parens": ["warn", "always"],
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": ["__REDUX_DEVTOOLS_EXTENSION_COMPOSE__", "__PRELOADED_STATE__"]
+      }
+    ],
+    "max-len": [
+      "error",
+      120,
+      {
+        "ignoreStrings": true,
+        "ignoreRegExpLiterals": true
+      }
+    ],
+    "no-console": [
+      "warn",
+      {
+        "allow": ["error", "debug", "warn"]
+      }
+    ],
+    "no-debugger": 1,
+    "no-unused-vars": 1,
+    "no-mixed-operators": "off",
+    "no-use-before-define": ["off", { "variables": false }],
+    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "keyword-spacing": [2, { "before": true, "after": true }],
+    "no-useless-escape": "off",
+    "class-methods-use-this": "off",
+    "import/no-absolute-path": "off",
+    "import/newline-after-import": "error",
+    "newline-before-return": "error",
+    "import/no-unresolved": "off",
+    "import/extensions": "off",
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": "off"
+  }
+}

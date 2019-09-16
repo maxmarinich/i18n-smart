@@ -11,10 +11,11 @@ Smart and lightweight module for localization with dynamic storage.
 - React integration (optional)
 
 ### Note:
+
 The library always relies on the global `Map` object to handle data storage. For browsers that do not support that, you'll need to include a polyfill, such as core-js:
 
 ```javascript
-import "core-js/es6/map";
+import 'core-js/es6/map';
 ```
 
 ### Methods
@@ -65,7 +66,9 @@ type Instance = {
 };
 
 type Options = {
-  plugins?: Array<any>;
+  plugins?: Plugins;
+  locale?: string;
+  defaultValues?: Value;
   [name: string]: any;
 };
 ```
@@ -77,17 +80,17 @@ npm i i18n-smart
 ```
 
 ```javascript
-import i18n from "i18n-smart";
+import i18n from 'i18n-smart';
 
 const locale = 'en';
-const values = { 
-  "key1": "Some text", 
-  "key2": "Some {0} for {1}",
+const values = {
+  key1: 'Some text',
+  key2: 'Some {0} for {1}',
 };
 
 i18n.setValues(values, locale);
-i18n.value("key1"); // Some text
-i18n.value("key2", ["text", "interpolation"]); // Some text for interpolation
+i18n.value('key1'); // Some text
+i18n.value('key2', ['text', 'interpolation']); // Some text for interpolation
 ```
 
 ### Configure example (extends with react plugin)
@@ -102,12 +105,10 @@ import i18n, { configure } from "i18n-smart";
 import reactInterpolatePlugin from "i18n-smart/lib/plugins/react";
 
 configure({
-  plugins: [reactInterpolatePlugin]
+  plugins: [reactInterpolatePlugin],
+  defaultValues: { "key": "Some {0}"},
 });
 
-const values = { "key": "Some {0}"};
 const element = <span>text</spam>;
-
-i18n.setDefaultValues(values);
 i18n.interpolate('key', [element]) // Some text
 ```
