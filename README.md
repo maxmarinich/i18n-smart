@@ -19,7 +19,7 @@ The library always relies on the global`Map`object to handle data storage. For b
 import 'core-js/es6/map';
 ```
 
-The current version has temporarily limited pluralization support.
+The current version has temporarily limited pluralization support. Read [docs](https://github.com/maxmarinich/i18n-smart/tree/master/docs/langs.md).
 
 ### Methods
 
