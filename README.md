@@ -6,17 +6,20 @@ Smart and lightweight module for localization with dynamic storage.
 
 - Easily expandable
 - Easily configurable
+- Pluralization
 - Plugins support
 - TypeScript
 - React integration (optional)
 
-### Note:
+### !IMPOTANT!
 
-The library always relies on the global `Map` object to handle data storage. For browsers that do not support that, you'll need to include a polyfill, such as core-js:
+The library always relies on the global`Map`object to handle data storage. For browsers that do not support that, you'll need to include a polyfill, such as `core-js`:
 
 ```javascript
 import 'core-js/es6/map';
 ```
+
+The current version has temporarily limited pluralization support.
 
 ### Methods
 
@@ -56,12 +59,13 @@ type Instance = {
   getValue(key: string, params?: Array<any>, cb?: any): any;
   getValues(): Value;
   getLocale(): string | void;
-  getValueByKey(key: string): string | undefined;
+  getValueByKey(key: string): string | void;
   hasTranslations(localeCode: string): boolean;
   hasValue(key: string): boolean;
   clear(): void;
-  value(key: string, params?: Array<any>): any;
+  value(key: string, params?: Array<any>): string;
   interpolate(key: string, params?: Array<any>): any;
+  pluralize(key: string, options?: PluralizeOptions): any;
   [name: string]: any;
 };
 
@@ -91,6 +95,33 @@ const values = {
 i18n.setValues(values, locale);
 i18n.value('key1'); // Some text
 i18n.value('key2', ['text', 'interpolation']); // Some text for interpolation
+```
+
+### Configure example (extends with puralize plugin)
+
+```
+npm i i18n-smart
+```
+
+```javascript
+import React from 'react';
+import i18n, { configure } from 'i18n-smart';
+import pluralizePlugin from 'i18n-smart/lib/plugins/pluralize';
+
+configure({
+  plugins: [pluralizePlugin],
+});
+
+const values = {
+    keyPlural: {
+      one: '1 file', // singular
+      other: '{0} files', // plural
+    },
+  },
+
+i18n.setValues(values, locale);
+i18n.pluralize('keyPlural', { value: 1 }); // 1 file
+i18n.pluralize('keyPlural', { value: 2 }); // 2 files
 ```
 
 ### Configure example (extends with react plugin)

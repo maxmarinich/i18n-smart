@@ -1,4 +1,4 @@
-import { Value } from "../types";
+import { Value } from '../types';
 
 export const unmapValues = (mapObject: Map<any, any>): Value => {
   const values: Value = {};

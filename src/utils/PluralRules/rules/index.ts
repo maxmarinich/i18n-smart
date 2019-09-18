@@ -1,6 +1,6 @@
 // List of Plural Rules
 // https://developer.mozilla.org/en-US/docs/Mozilla/Localization/Localization_and_Plurals
-import { endsIn } from '../utils';
+import { endsIn } from '../services';
 import { ONE, FEW, OTHER } from '../constants';
 
 /*

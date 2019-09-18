@@ -1,18 +1,16 @@
-import rules from './rules';
-import { dictionary } from './utils';
-import { Locales, Options } from './types';
+import PluralRules from '../../utils/PluralRules';
+import { interpolate } from '../../services';
+import { Options, Instance, PluralizeOptions } from '../../types';
 
-const Pluralize = (locales?: Locales, options?: Options) => {
-  const LOCALE = locales;
+export default (options: Options, instance: Instance) => {
+  instance.pluralize = function pluralizeExtended(key: any, props?: PluralizeOptions): string {
+    const value = props && props.value;
+    const locale = instance.getLocale();
+    const keys = instance.getValue(key);
 
-  return {
-    select: function(value?: number): string {
-      const rule = dictionary(LOCALE);
-      const pluralRule = rules(rule);
+    const Pluralize = PluralRules(locale);
+    const select = Pluralize.select(props && props.value);
 
-      return pluralRule(value);
-    },
+    return interpolate(keys[select], [value]);
   };
 };
-
-export default Pluralize;

@@ -37,7 +37,8 @@ const getValue = (key: string, params?: Array<any>, cb?: void): any => {
 const getValueByKey = (key: string): string | undefined => {
   const translations = getTranslations();
   const defaultTranslations = getDefaultTranslations();
-  return defaultTranslations.get(key) || translations.get(key);
+
+  return translations.get(key) || defaultTranslations.get(key);
 };
 
 const getDefaultTranslations = (): Map<any, any> => {
