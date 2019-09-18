@@ -104,7 +104,6 @@ npm i i18n-smart
 ```
 
 ```javascript
-import React from 'react';
 import i18n, { configure } from 'i18n-smart';
 import pluralizePlugin from 'i18n-smart/lib/plugins/pluralize';
 
