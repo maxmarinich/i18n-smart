@@ -19,7 +19,7 @@ The library always relies on the global`Map`object to handle data storage. For b
 import 'core-js/es6/map';
 ```
 
-The current version has temporarily limited pluralization support. Read [docs](https://github.com/maxmarinich/i18n-smart/blob/master/src/docs/langs.md).
+The current version has temporarily limited pluralization support. Read [docs](https://github.com/maxmarinich/i18n-smart/blob/master/docs/langs.md).
 
 ### Methods
 
@@ -141,4 +141,11 @@ configure({
 
 const element = <span>text</spam>;
 i18n.interpolate('key', [element]) // Some text
+```
+
+### Run tests
+
+```
+npm i
+npm run test
 ```
