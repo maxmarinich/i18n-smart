@@ -49,8 +49,10 @@ jspm_packages
 src
 !src/plugins
 tests
+docs
 package-lock.json
 tsconfig.json
 .eslint
 .eslintrc
 .prettierrc
+

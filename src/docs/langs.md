@@ -27,11 +27,7 @@ Read about localization and plural in the documentation [_Localization and Plura
 |       |                   |                                                 |
 |       |-------------------|                                                 |
 |       |                   |                                                 |
-|       |      few          |                                                 |
-|       |                   |                                                 |
-|   7   |-------------------|   Belarusian, Russian, Ukrainian                |
-|       |                   |                                                 |
-|       |      many         |                                                 |
+|   7   |      few          |   Belarusian, Russian, Ukrainian                |
 |       |                   |                                                 |
 |       |-------------------|                                                 |
 |       |                   |                                                 |
