@@ -1,6 +1,6 @@
-import * as services from "../services";
-import { LOCALE, DEFAULT } from "./constants";
-import { Value, Instance } from "../types";
+import * as services from '../services';
+import { LOCALE, DEFAULT } from './constants';
+import { Value, Instance, PluralizeOptions } from '../types';
 
 const STORE: Map<any, any> = new Map();
 
@@ -25,8 +25,7 @@ const getValue = (key: string, params?: Array<any>, cb?: void): any => {
   const value = getValueByKey(key);
 
   if (value) {
-    const interpolate =
-      (typeof cb === "function" && cb) || services.interpolate;
+    const interpolate = (typeof cb === 'function' && cb) || services.interpolate;
 
     return interpolate(value, params);
   }
@@ -39,7 +38,7 @@ const getValueByKey = (key: string): string | undefined => {
   const translations = getTranslations();
   const defaultTranslations = getDefaultTranslations();
 
-  return defaultTranslations.get(key) || translations.get(key);
+  return translations.get(key) || defaultTranslations.get(key);
 };
 
 const getDefaultTranslations = (): Map<any, any> => {
@@ -57,10 +56,7 @@ const getValues = (): Value => {
 };
 
 const getLocale = (): string | void => {
-  return (
-    STORE.get(LOCALE) ||
-    console.warn("i18n-smart: `locale` has not been initialized")
-  );
+  return STORE.get(LOCALE) || console.warn('i18n-smart: `locale` has not been initialized');
 };
 
 const hasTranslations = (localeCode: string): boolean => {
@@ -76,8 +72,9 @@ const clear = (): void => {
 };
 
 const interfaces = {
+  value: getValue,
   interpolate: getValue,
-  value: getValue
+  pluralize: (key: string, options?: PluralizeOptions) => {},
 };
 
 export function instance(): Instance {
@@ -92,6 +89,6 @@ export function instance(): Instance {
     hasTranslations,
     hasValue,
     clear,
-    ...interfaces
+    ...interfaces,
   };
 }
