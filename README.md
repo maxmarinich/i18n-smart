@@ -140,7 +140,8 @@ configure({
 });
 
 const element = <span>text</spam>;
-i18n.value('key', [element]) // [object Object]
+
+i18n.value('key', [element]) // Spme [object Object]
 i18n.interpolate('key', [element]) // Some text
 ```
 
